@@ -18,25 +18,18 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import { Avatar } from '@material-ui/core';
+
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { secondaryListItems } from '../Dashboard/ListItems';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
-import img from '../../Image/maruf.jpg'
+
 import VisibilityButton from './VisibilityButton';
 import GithubButton from './GithubButton'
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import redOnionImg from '../../Image/redOnion.PNG'
-import emaJonSimpleImg from '../../Image/emaSimple.PNG'
-import doctorPortalImg from '../../Image/doctorPortal.PNG'
-import friendMediaImg from '../../Image/FriendsMedia.PNG'
-import aircnc from '../../Image/aircnc.PNG'
-import powerxgym from '../../Image/powerXgym.PNG'
-import SimpleButton from './Button'
+
 import learningMgt from '../../Image/learningMgt.png'
 import { RouterAnimation } from "../Animation/RouterAnimation";
 
