@@ -22,9 +22,10 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import { Avatar } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { secondaryListItems } from '../Dashboard/ListItems';
-import img from '../../Image/maruf.jpg'
-import imgMaruf from '../../Image/marufPhoto.jpg'
 import Content from './Content';
+import unDrawFolderFiles from "../../Image/undrawFolderFiles.svg";
+import { RouterAnimation } from "../Animation/RouterAnimation"
+import { motion } from 'framer-motion/dist/framer-motion'
 
 function Copyright() {
     return (
@@ -42,10 +43,11 @@ function Copyright() {
     const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+        background:"#07172c",
     },
     toolbar: {
         paddingRight: 24, // keep right padding when drawer closed
-        backgroundColor: '#fff',
+        background:"#07172c",
         color: '#000'
     },
     toolbarIcon: {
@@ -78,17 +80,26 @@ function Copyright() {
     },
     title: {
         flexGrow: 1,
+        color: "white"
     },
     drawerPaper: {
+        background: 'rgba(0, 56, 248, 0.34)',
+        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+        backdropFilter: 'blur(5px)',
+        border: '1px solid rgba(0, 56, 248, 0.3)',
         position: 'relative',
         whiteSpace: 'nowrap',
         width: drawerWidth,
+        color: 'white',
+      
         transition: theme.transitions.create('width', {
-        easing: theme.transitions.easing.sharp,
+        easing: theme.transitions.easing.easeInOut,
         duration: theme.transitions.duration.enteringScreen,
         }),
     },
     drawerPaperClose: {
+       
+        
         overflowX: 'hidden',
         transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
@@ -99,12 +110,16 @@ function Copyright() {
         width: theme.spacing(9),
         },
     },
+    appIcon: {
+        color: "white",
+        fontSize: 30
+    },
     appBarSpacer: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
-        height: '100vh',
+        
         overflow: 'auto',
-        backgroundColor: '#f0f0f0'
+        
     },
     container: {
         paddingTop: theme.spacing(4),
@@ -127,18 +142,50 @@ function Copyright() {
         textAlign: 'center',
     },
     img: {
-        width: 475,
-        height: 630,
-        '&:hover': {
-            display: 'block',
-            padding: 10,
-            background: 'linear-gradient(to right, #009fff, #ec2f4b)',
-            borderRadius: '5px',
-            boxShadow: '0px 70px 100px -10px rgba(0, 0, 0, 0.4)',
-            transform: 'translate3d(0px,0,0) scale(1) rotateX(0deg)',
-        }
-    }
+        height: "50%",
+       
+        
+    },
+    text: {
+        color: "white",
+        fontFamily: "Oxygen"
+    },
+
+
+
 }));
+
+
+
+const contentVariant = {
+    hidden: {
+      
+        opacity: 0,
+        scaleX: 0,
+       
+    },
+    visible: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            delay: 3
+        }
+
+    },
+
+    exit: {
+        x: 300
+
+    }
+    
+}
+
+
+
+
+
+
+
 
 export default function About() {
     const classes = useStyles();
@@ -151,9 +198,10 @@ export default function About() {
     };
 
     return (
+        <RouterAnimation>
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+            <AppBar position="absolute" elevation={0} className={clsx(classes.appBar, open && classes.appBarShift)}>
                 <Toolbar className={classes.toolbar}>
                     <IconButton
                         edge="start"
@@ -162,34 +210,25 @@ export default function About() {
                         onClick={handleDrawerOpen}
                         className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
                     >
-                    <MenuIcon />
+                    <MenuIcon className={classes.appIcon}/>
                     </IconButton>
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        Maruf's World
+                        Kennedy Ngosa
                     </Typography>
                     <IconButton color="inherit">
-                        <Link href="https://github.com/mdmaruf43" target="_blank">
-                            <GitHubIcon />
+                        <Link href="#" target="_blank">
+                            <GitHubIcon className={classes.appIcon}/>
                         </Link>
                     </IconButton>
                     <IconButton color="inherit">
-                        <Link href="https://www.linkedin.com/in/mdmaruf43/" target="_blank">
-                            <LinkedInIcon />
+                        <Link href="#" target="_blank">
+                            <LinkedInIcon className={classes.appIcon}/>
                         </Link>
                     </IconButton>
+                   
                     <IconButton color="inherit">
-                        <Link href="https://twitter.com/mdmaruf43" target="_blank">
-                            <TwitterIcon />
-                        </Link>
-                    </IconButton>
-                    <IconButton color="inherit">
-                        <Link href="https://www.youtube.com/channel/UCr3rzkFsTtgKg4fHSlo-hkg" target="_blank">
-                            <YouTubeIcon />
-                        </Link>
-                    </IconButton>
-                    <IconButton color="inherit">
-                        <Link href="https://www.facebook.com/mdmaruf43" target="_blank">
-                            <FacebookIcon />
+                        <Link href="#" target="_blank">
+                            <FacebookIcon className={classes.appIcon}/>
                         </Link>
                     </IconButton>
                 </Toolbar>
@@ -203,11 +242,11 @@ export default function About() {
             >
                 <div className={classes.toolbarIcon}>
                     <IconButton onClick={handleDrawerClose}>
-                        <ChevronLeftIcon />
+                        <ChevronLeftIcon classsName={classes.appIcon} />
                     </IconButton>
                 </div>
                 <Divider/>
-                    <Avatar alt="Remy Sharp" src={img} className={classes.large} />
+                  
                 <Divider />
                     <List>{secondaryListItems}</List>
                 <Divider />
@@ -217,24 +256,32 @@ export default function About() {
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
+                
                 <Container maxWidth="lg" className={classes.container}>
-                <Grid container spacing={3}>
+                <Grid container spacing={4}>
                     <Grid item xs={12} sm={12} md={6} lg={6}>
-                        <img className={classes.img} src={imgMaruf} alt="myImage"/>
+                        <motion.span variants={contentVariant} initial="hidden" animate="visible" exit="exit">
+                        <img className={classes.img} src={unDrawFolderFiles} alt="myImage"/>
+                        </motion.span>
                     </Grid>
+                    
                     <Grid item xs={12} sm={12} md={6} lg={6}>
-                        <Typography variant="h3" component="h2" gutterBottom>
+                        <Typography variant="h4" component="h2" className={classes.text} gutterBottom>
                             About Me
                         </Typography>
-                        <Typography variant="body1" color="textSecondary" component="p" gutterBottom>
+                        <Typography variant="body1" color="textSecondary" component="p" className={classes.text} gutterBottom>
                             My intellectual curiosity drives me to be a lifelong learner. As a curious tech learner, I am currently exploring Web technology having the experience of the Software Service industry. <br/> <br/>
                             In my everyday life, I try to love reading a book, write different things, helping people, and coding as well. I also think about different sorts of people. That basically inspires me as a different aspect. 
                         </Typography>
+                        <motion.span variants={contentVariant} initial="hidden" animate="visible" exit="exit">
                         <Content />
+                        </motion.span >
                     </Grid>
                 </Grid>
                 </Container>
+               
             </main>
         </div>
+        </RouterAnimation>
     );
 }

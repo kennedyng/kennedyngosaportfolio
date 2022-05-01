@@ -50,9 +50,25 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         width: '100%',
-        backgroundColor: theme.palette.background.paper,
+        background: 'rgba(0, 56, 248, 0.34)',
+        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+        backdropFilter: 'blur(5px)',
+        border: '1px solid rgba(0, 56, 248, 0.3)',
+        color: "white",
+        fontFamily: "Oxygen"
+        
     },
+
+    appIcon: {
+        color: "white",
+        
+    }, 
 }));
+
+const tabIcont = {
+    color:"#ff4d4a",
+    fontSize: 30
+}
 
 export default function Content() {
     const classes = useStyles();
@@ -64,19 +80,20 @@ export default function Content() {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static" color="default">
+            <AppBar position="static" color="transparent" elevation={0}>
                 <Tabs
                     value={value}
                     onChange={handleChange}
                     variant="scrollable"
                     scrollButtons="on"
                     indicatorColor="primary"
-                    textColor="primary"
+                   
                     aria-label="scrollable force tabs example"
+                    className={classes.appIcon} 
                 >
-                    <Tab label="Main Skills" icon={<VisibilityIcon />} {...a11yProps(0)} />
-                    <Tab label="Experience" icon={<FavoriteIcon />} {...a11yProps(1)} />
-                    <Tab label="Education" icon={<CastForEducationIcon />} {...a11yProps(2)} />
+                    <Tab label="Main Skills" icon={<VisibilityIcon style={tabIcont}  />} {...a11yProps(0)} />
+                    <Tab label="Experience" icon={<FavoriteIcon style={tabIcont} />} {...a11yProps(1)} />
+                    <Tab label="Education" icon={<CastForEducationIcon style={tabIcont}/>} {...a11yProps(2)} />
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>

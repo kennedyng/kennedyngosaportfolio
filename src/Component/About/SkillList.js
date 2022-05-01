@@ -21,6 +21,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
+const listIcon = {
+    color: "#ff4d4a",
+    fontSize: 30
+}
 export default function SkillList() {
     const classes = useStyles();
 
@@ -33,37 +38,37 @@ export default function SkillList() {
             <List component="nav" aria-label="main mailbox folders">
                 <ListItem button>
                     <ListItemIcon>
-                        <WebIcon />
+                        <WebIcon style={listIcon}/>
                     </ListItemIcon>
                     <ListItemText primary="Front-end Development" />
                 </ListItem>
                 <ListItem button>
                     <ListItemIcon>
-                        <LanguageIcon />
+                        <LanguageIcon style={listIcon}/>
                     </ListItemIcon>
                     <ListItemText primary="Backend Development" />
                 </ListItem>
                 <ListItem button>
                     <ListItemIcon>
-                        <PaymentIcon />
+                        <PaymentIcon style={listIcon}/>
                     </ListItemIcon>
                     <ListItemText primary="Payment Module Integration" />
                 </ListItem>
                 <ListItem button>
                     <ListItemIcon>
-                        <SupervisedUserCircleIcon />
+                        <SupervisedUserCircleIcon style={listIcon}/>
                     </ListItemIcon>
                     <ListItemText primary="Communication Management" />
                 </ListItem>
                 <ListItem button>
                     <ListItemIcon>
-                        <BorderColorIcon />
+                        <BorderColorIcon  style={listIcon}/>
                     </ListItemIcon>
                     <ListItemText primary="Technical Content Writer" />
                 </ListItem>
                 <ListItem button>
                     <ListItemIcon>
-                        <VideoLibraryIcon />
+                        <VideoLibraryIcon style={listIcon}/>
                     </ListItemIcon>
                     <ListItemText primary="Technical Video Maker" />
                 </ListItem>

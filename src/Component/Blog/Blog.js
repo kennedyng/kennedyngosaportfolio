@@ -85,6 +85,11 @@ function Copyright() {
         flexGrow: 1,
     },
     drawerPaper: {
+        color: 'white',
+        background: 'rgba(0, 56, 248, 0.34)',
+        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+        backdropFilter: 'blur(5px)',
+        border: '1px solid rgba(0, 56, 248, 0.3)',
         position: 'relative',
         whiteSpace: 'nowrap',
         width: drawerWidth,

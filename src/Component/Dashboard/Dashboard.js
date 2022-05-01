@@ -15,17 +15,18 @@ import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import YouTubeIcon from '@material-ui/icons/YouTube';
+
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import { Avatar } from '@material-ui/core';
+
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { secondaryListItems } from './ListItems';
-import ParticlesBg from "particles-bg";
-import img from '../../Image/maruf.jpg'
-import Home from '../Home/Home';
 
+import Home from '../Home/Home';
+import { motion} from 'framer-motion/dist/framer-motion'
+
+
+import { RouterAnimation } from "../Animation/RouterAnimation";
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -42,24 +43,44 @@ function Copyright() {
     const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+        background: '#07172c',
+        
+        
+      
+    
+      
+       
     },
     toolbar: {
         paddingRight: 24, // keep right padding when drawer closed
-        backgroundColor: '#fff',
-        color: '#000'
+       
+        color: 'white',
+        fontFamily: [
+            'Oxygen'
+        ],
+        background: '#07172c',
+       
+
     },
     toolbarIcon: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-end',
         padding: '0 8px',
-        ...theme.mixins.toolbar,
+        color: "white",
+      
+        
+       
+        
     },
     appBar: {
+        
         zIndex: theme.zIndex.drawer + 1,
         transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
+        boxShadow:0
+      
         }),
     },
     appBarShift: {
@@ -70,6 +91,11 @@ function Copyright() {
         duration: theme.transitions.duration.enteringScreen,
         }),
     },
+    appIcon: {
+        color: "white",
+        fontSize: 30
+    }, 
+
     menuButton: {
         marginRight: 36,
     },
@@ -80,12 +106,18 @@ function Copyright() {
         flexGrow: 1,
     },
     drawerPaper: {
+        color: 'white',
+        background: 'rgba(0, 56, 248, 0.34)',
+        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+        backdropFilter: 'blur(5px)',
+        border: '1px solid rgba(0, 56, 248, 0.3)',
         position: 'relative',
         whiteSpace: 'nowrap',
         width: drawerWidth,
         transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
+        
         }),
     },
     drawerPaperClose: {
@@ -102,8 +134,7 @@ function Copyright() {
     appBarSpacer: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
-        height: '100vh',
-        overflow: 'auto',
+      
     },
     container: {
         paddingTop: theme.spacing(4),
@@ -117,7 +148,7 @@ function Copyright() {
     },
     fixedHeight: {
         height: '100vh',
-        textAlign: 'center',
+        
         alignItems: 'center'
     },
     large: {
@@ -129,6 +160,61 @@ function Copyright() {
     }
 }));
 
+
+const mainTitleVariant = {
+    hidden: {
+        y: -40,
+        opacity: 0,
+        transition: {
+           ease: "easeInOut",
+           
+            
+        }
+    },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            stiffness: 50,
+            dumping: 300,
+            delay: 3
+        }
+    }
+}
+
+
+
+
+
+const listVariant = {
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+        delay: 4
+      },
+    },
+    hidden: {
+      opacity: 0,
+      transition: {
+        when: "afterChildren",
+      },
+    },
+  }
+  const itemVariant = {
+    visible: { opacity: 1,
+         y: 0, 
+        },
+    hidden: { opacity: 0, y: 100 },
+    hover: {
+        color: "#ff4d5a",
+    }
+  }
+
+
+
 export default function Dashboard() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
@@ -139,42 +225,13 @@ export default function Dashboard() {
         setOpen(false);
     };
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-    let config = {
-        num: [2, 5],
-        rps: 0.1,
-        radius: [5, 40],
-        life: [1.5, 3],
-        v: [2, 3],
-        tha: [-40, 40],
-        alpha: [0.7, 0.3],
-        scale: [.1, 0.2],
-        position: "all",
-        color: ["random", "#ff0000"],
-        cross: "dead",
-        // emitter: "follow",
-        random: 15
-    };
-    if (Math.random() > 0.85) {
-        config = Object.assign(config, {
-        onParticleUpdate: (ctx, particle) => {
-            ctx.beginPath();
-            ctx.rect(
-                particle.p.x,
-                particle.p.y,
-                particle.radius * 2,
-                particle.radius * 2
-            );
-            ctx.fillStyle = particle.color;
-            ctx.fill();
-            ctx.closePath();
-        }
-        });
-    }
+    
     return (
+        <RouterAnimation >
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
-                <Toolbar className={classes.toolbar}>
+            <AppBar position="fixed" elevation={0} className={clsx(classes.appBar, open && classes.appBarShift)}>
+                <Toolbar  className={classes.toolbar}>
                     <IconButton
                         edge="start"
                         color="inherit"
@@ -185,36 +242,39 @@ export default function Dashboard() {
                     <MenuIcon />
                     </IconButton>
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        Maruf's World
+                        <motion.div variants={mainTitleVariant} initial="hidden" animate="visible">Kennedy Ngosa</motion.div>  
                     </Typography>
+
+                    <motion.span variants={listVariant} initial="hidden" animate="visible">
+                    
+                    <motion.span>
                     <IconButton color="inherit">
-                        <Link href="https://github.com/mdmaruf43" target="_blank">
-                            <GitHubIcon />
+                        <Link href="#" target="_blank">
+                            <GitHubIcon className={classes.appIcon}/>
                         </Link>
                     </IconButton>
+                    </motion.span>
+                    <motion.span variants={itemVariant}>
                     <IconButton color="inherit">
-                        <Link href="https://www.linkedin.com/in/mdmaruf43/" target="_blank">
-                            <LinkedInIcon />
+                        <Link href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_
+                            profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact_info%3B62Vp%2FAXfQtycsJPsYnz6Ag%3D%3D" target="_blank">
+                            <LinkedInIcon className={classes.appIcon} />
                         </Link>
                     </IconButton>
+                    </motion.span>
+                    <motion.span variants={itemVariant}>
                     <IconButton color="inherit">
-                        <Link href="https://twitter.com/mdmaruf43" target="_blank">
-                            <TwitterIcon />
+                        <Link href="https://web.facebook.com/kennedy.ngosa.315/" target="_blank">
+                            <FacebookIcon className={classes.appIcon}/>
                         </Link>
                     </IconButton>
-                    <IconButton color="inherit">
-                        <Link href="https://www.youtube.com/channel/UCr3rzkFsTtgKg4fHSlo-hkg" target="_blank">
-                            <YouTubeIcon />
-                        </Link>
-                    </IconButton>
-                    <IconButton color="inherit">
-                        <Link href="https://www.facebook.com/mdmaruf43" target="_blank">
-                            <FacebookIcon />
-                        </Link>
-                    </IconButton>
+                    </motion.span>
+                    </motion.span>
                 </Toolbar>
             </AppBar>
+          
             <Drawer
+              
                 variant="permanent"
                 classes={{
                 paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
@@ -222,21 +282,23 @@ export default function Dashboard() {
                 open={open}
             >
                 <div className={classes.toolbarIcon}>
-                    <IconButton onClick={handleDrawerClose}>
-                        <ChevronLeftIcon />
+                    <IconButton  onClick={handleDrawerClose}>
+                        <ChevronLeftIcon fontSize="large" style={{color: "white"}} />
+                       
                     </IconButton>
+                    
                 </div>
-                <Divider/>
-                    <Avatar alt="Remy Sharp" src={img} className={classes.large} />
-                <Divider />
-                    <List>{secondaryListItems}</List>
+              
+              
+               <div style={{marginBottom: 20}}></div>
+                    <List >{secondaryListItems}</List>
                 <Divider />
                 <Box className={classes.textAlign} pt={40}>
                     <Copyright />
                 </Box>
             </Drawer>
             <main className={classes.content}>
-                <div className={classes.appBarSpacer} />
+                <div className={classes.appBarSpacer}  />
                 <Container maxWidth="lg" className={classes.container}>
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={12} md={12} lg={12}>
@@ -244,20 +306,21 @@ export default function Dashboard() {
                             <Box
                                 display="flex"
                                 alignItems="center"
-                                p={1}
-                                m={1}
+                               
                                 css={{ height: '73vh' }}
                             >
-                                <Box p={1} >
+                                <Box >
                                     <Home />
                                 </Box>
-                            </Box> 
-                            <ParticlesBg type="custom" config={config} bg={true} />                     
+                            </Box>
+
+                                             
                         </div>
                     </Grid>
                 </Grid>
                 </Container>
             </main>
         </div>
+        </RouterAnimation>
     );
 }

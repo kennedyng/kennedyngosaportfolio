@@ -25,6 +25,8 @@ import { secondaryListItems } from '../Dashboard/ListItems';
 import img from '../../Image/maruf.jpg'
 import ContactInformation from './ContactInformation';
 import ImportantData from './ImportantData';
+import {RouterAnimation} from "../Animation/RouterAnimation"
+import { motion} from 'framer-motion/dist/framer-motion'
 
 function Copyright() {
     return (
@@ -42,11 +44,18 @@ function Copyright() {
     const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+        background: '#07172c',
+        fontFamily: [
+            'Oxygen', 'san-serif'
+        ],
+        color:"white",
+       
+        
+        
     },
     toolbar: {
         paddingRight: 24, // keep right padding when drawer closed
-        backgroundColor: '#fff',
-        color: '#000'
+        background: '#07172c',
     },
     toolbarIcon: {
         display: 'flex',
@@ -78,8 +87,15 @@ function Copyright() {
     },
     title: {
         flexGrow: 1,
+        fontFamily: "Oxygen",
+       
     },
     drawerPaper: {
+        color: 'white',
+        background: 'rgba(0, 56, 248, 0.34)',
+        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+        backdropFilter: 'blur(5px)',
+        border: '1px solid rgba(0, 56, 248, 0.3)',
         position: 'relative',
         whiteSpace: 'nowrap',
         width: drawerWidth,
@@ -99,12 +115,16 @@ function Copyright() {
         width: theme.spacing(9),
         },
     },
+    appIcon: {
+        color: "white",
+        fontSize: 30
+    },
     appBarSpacer: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
         height: '100vh',
         overflow: 'auto',
-        backgroundColor: '#f0f0f0'
+        background: '#07172c',
     },
     container: {
         paddingTop: theme.spacing(4),
@@ -135,6 +155,21 @@ function Copyright() {
     },
 }));
 
+
+const RouterVariant = {
+    hidden : {
+        opacity: 0,
+    },
+    visible: {
+        opacity: 1
+    }
+    ,
+    exit : {
+        opacity: 0,
+    }
+
+}
+
 export default function Contact() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
@@ -146,9 +181,10 @@ export default function Contact() {
     };
 
     return (
+       <motion.div variants={RouterVariant} initial="hidden" animate="visible" exit="exit">
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+            <AppBar position="absolute" elevation={0} className={clsx(classes.appBar, open && classes.appBarShift)}>
                 <Toolbar className={classes.toolbar}>
                     <IconButton
                         edge="start"
@@ -159,32 +195,23 @@ export default function Contact() {
                     >
                     <MenuIcon />
                     </IconButton>
-                    <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        Maruf's World
+                    <Typography component="h1" variant="h6"  noWrap className={classes.title}>
+                        Kennedy Ngosa
                     </Typography>
                     <IconButton color="inherit">
-                        <Link href="https://github.com/mdmaruf43" target="_blank">
-                            <GitHubIcon />
+                        <Link href="#" target="_blank">
+                            <GitHubIcon className={classes.appIcon}/>
                         </Link>
                     </IconButton>
                     <IconButton color="inherit">
-                        <Link href="https://www.linkedin.com/in/mdmaruf43/" target="_blank">
-                            <LinkedInIcon />
+                        <Link href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact_info%3B62Vp%2FAXfQtycsJPsYnz6Ag%3D%3D" target="_blank">
+                            <LinkedInIcon className={classes.appIcon} />
                         </Link>
                     </IconButton>
+                   
                     <IconButton color="inherit">
-                        <Link href="https://twitter.com/mdmaruf43" target="_blank">
-                            <TwitterIcon />
-                        </Link>
-                    </IconButton>
-                    <IconButton color="inherit">
-                        <Link href="https://www.youtube.com/channel/UCr3rzkFsTtgKg4fHSlo-hkg" target="_blank">
-                            <YouTubeIcon />
-                        </Link>
-                    </IconButton>
-                    <IconButton color="inherit">
-                        <Link href="https://www.facebook.com/mdmaruf43" target="_blank">
-                            <FacebookIcon />
+                        <Link href="https://web.facebook.com/kennedy.ngosa.315/" target="_blank">
+                            <FacebookIcon className={classes.appIcon}/>
                         </Link>
                     </IconButton>
                 </Toolbar>
@@ -198,11 +225,11 @@ export default function Contact() {
             >
                 <div className={classes.toolbarIcon}>
                     <IconButton onClick={handleDrawerClose}>
-                        <ChevronLeftIcon />
+                        <ChevronLeftIcon className={classes.appIcon} />
                     </IconButton>
                 </div>
                 <Divider/>
-                    <Avatar alt="Remy Sharp" src={img} className={classes.large} />
+                    
                 <Divider />
                     <List>{secondaryListItems}</List>
                 <Divider />
@@ -213,12 +240,12 @@ export default function Contact() {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
-                    <Typography component="h2" variant="h3">
-                        <Box pt={3}>
+                    <Typography component="h2" variant="h2">
+                        <Box pt={3} className={classes.title}>
                             Contact Me
                         </Box>
                     </Typography>
-                    <Grid container spacing={3}>
+                    <Grid container spacing={5}>
                     <Grid item xs={12} md={6} lg={6}>
                         <ContactInformation />
                     </Grid>
@@ -229,5 +256,6 @@ export default function Contact() {
                 </Container>
             </main>
         </div>
+    </motion.div>      
     );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,43 +8,80 @@ import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import CloseIcon from '@material-ui/icons/Close';
 import { Alert } from '@material-ui/lab';
+import { Input } from '@material-ui/core';
 
+import {Snackbar, MuiAlert } from "@material-ui/core"
 const useStyles = makeStyles((theme) => ({
     paper: {
         marginTop: theme.spacing(4),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
+     
+  
     },
     form: {
         width: '100%', // Fix IE 11 issue.
         marginTop: theme.spacing(1),
+       
     },
+    Input : {
+        color: "white",
+        border: "2px solid white",
+        borderTop: "none",
+        borderLeft: "none",
+        borderRight: "none"
+        
+       
+    },
+    InputText : {
+        color : "white",
+        fontFamily: "Oxygen"
+
+    },
+    sendBtn : {
+        backgroundColor: "#fa4566",
+        color: "white",
+        fontFamily: "Oxygen"
+
+    }
+    
 }));
+
+
 
 export default function ContactInformation() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
+
+    const emailjsPrivateKey = "jxMmM3SAjIxloROdHCFxc";
+    const emailjsPublicKey = "sGs8qtiXJSrmH_Mvo";
+
     function sendEmail(e) {
         e.preventDefault();    //This is important, i'm not sure why, but the email won't send without it
 
-        emailjs.sendForm('gmail', 'template_JfyNHSR3', e.target, 'user_aiYN67VokkqmZ6kxfpTQU')
-        .then((result) => {
-            window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
-        }, (error) => {
-            console.log(error.text);
-        });
+        
+        
+        emailjs.sendForm("service_ro8cksw", "template_lb9xq9m", e.target, emailjsPublicKey)
+          .then((result) => {
+              
+            alert("successfully sent to kennedy ngosa");
+              console.log(result.text);
+          }, (error) => {
+                alert("Failed to send");
+              console.log(error.text);
+          });
     }
     return (
-        <div className={classes.paper}>
-            <Typography variant="h6" component="h6" gutterBottom>
+            <div className={classes.paper}>
+            <Typography variant="h4" component="h6" gutterBottom>
                 Get In Touch
             </Typography>
             
             <form onSubmit={sendEmail} className={classes.form} noValidate>
                 <TextField
-                    variant="outlined"
+             
                     margin="normal"
                     required
                     fullWidth
@@ -53,9 +90,13 @@ export default function ContactInformation() {
                     name="from_name"
                     autoComplete="name"
                     autoFocus
+                    InputLabelProps = {{className: classes.InputText}}
+                  
+                    inputProps={{ className: classes.Input}}
+                   
                 />
                 <TextField
-                    variant="outlined"
+                   
                     margin="normal"
                     required
                     fullWidth
@@ -64,9 +105,12 @@ export default function ContactInformation() {
                     name="from_email"
                     autoComplete="email"
                     autoFocus
+                 
+                    inputProps={{ className: classes.Input}}
+                    InputLabelProps = {{className: classes.InputText}}
                 />
                 <TextField
-                    variant="outlined"
+                    
                     margin="normal"
                     required
                     fullWidth
@@ -75,9 +119,12 @@ export default function ContactInformation() {
                     name="email_subject"
                     autoComplete="text"
                     autoFocus
+                    inputProps={{ className: classes.Input}}
+                    InputLabelProps = {{className: classes.InputText}}
+                
                 />
                 <TextField
-                    variant="outlined"
+                    
                     margin="normal"
                     required
                     fullWidth
@@ -89,29 +136,18 @@ export default function ContactInformation() {
                     multiline
                     rows={2}
                     rowsMax={4}
+                    inputProps={{ className: classes.Input}}
+                    InputLabelProps = {{className: classes.InputText}}
+                   
+                   
                 />
-                <Collapse in={open}>
-                    <Alert
-                    action={
-                        <IconButton
-                        aria-label="close"
-                        color="inherit"
-                        size="small"
-                        onClick={() => {
-                            setOpen(false);
-                        }}
-                        >
-                        <CloseIcon fontSize="inherit" />
-                        </IconButton>
-                    }
-                    >
-                    Happy to connect you!
-                    </Alert>
-                </Collapse>
+              
                 <Button
                     type="submit"
-                    variant="contained"
+                    variant="outlined"
                     color="primary"
+                    fullWidth
+                    className={classes.sendBtn}
                     onClick={() => {
                         setOpen(true);
                     }}
@@ -119,6 +155,10 @@ export default function ContactInformation() {
                     Send Mail
                 </Button>
             </form>
+
+          
         </div>
+ 
+
     );
 }

@@ -13,19 +13,42 @@ const useStyles = makeStyles((theme) => ({
         display: 'row',
     },
     bigIconSize: {
-        width: 70,
-        height: 70,
+        width: 50,
+        height: 50,
         padding: '5px',
-        border: '1px solid #000'
+        color: "#fff"
     },
     paper: {
         display: 'flex',
+        color: 'white',
+        background: 'rgba(0, 56, 248, 0.34)',
+        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+        backdropFilter: 'blur(5px)',
+        border: '1px solid rgba(0, 56, 248, 0.3)',
+        borderRadius: "16px",
+        padding: 20
     },
     paddingTop: {
         paddingTop: '5px',
     },
     divPaddingTop: {
         paddingTop: '35px',
+    },
+    textTitle : {
+        fontFamily:[
+            'Oxygen',
+            'san-serif'
+        ],
+        color: "white"
+
+    },
+    textSubTitle: {
+        fontFamily:[
+            'Oxygen',
+            'san-serif'
+        ],
+        color: "#ff4d5a"
+
     }
 }));
 
@@ -39,28 +62,27 @@ function ImportantData() {
                         <PhoneIcon className={classes.bigIconSize}/>
                     </IconButton>
                     <div >
-                        <Typography className={classes.paddingTop} component="h6" variant="h6">
+                        <Typography className={[classes.paddingTop, classes.textSubTitle]} component="h6" variant="h6">
                             Phone
                         </Typography>
                         <Typography component="p" variant="body2">
-                            +880162-4551535 <br/>
-                            +8801763-129012
+                            +260 978329482<br/>
                         </Typography>
                     </div>
                 </Paper>
             </div>
             <div className={classes.paperHight}>
-                <Paper className={classes.paper} elevation={3}>
+                <Paper className={classes.paper} elevation={0}>
                     <IconButton>
                         <EmailIcon className={classes.bigIconSize}/>
                     </IconButton>
                     <div>
-                        <Typography className={classes.paddingTop} component="h6" variant="h6">
+                        <Typography className={[classes.paddingTop, classes.textSubTitle]} component="h6" variant="h6">
                             Email
                         </Typography>
                         <Typography component="p" variant="body2">
-                            mdmarufahmed43@gmail.com<br/>
-                            maruf15-7298@diu.edu.bd
+                            Kennedyngosachanda@gmail.com<br/>
+                            ngosakennedy@yahoo.com
                         </Typography>
                     </div>
                 </Paper>
@@ -71,11 +93,11 @@ function ImportantData() {
                         <LocationOnIcon className={classes.bigIconSize}/>
                     </IconButton>
                     <div>
-                        <Typography className={classes.paddingTop} component="h6" variant="h6">
+                        <Typography className={[classes.paddingTop, classes.textSubTitle]} component="h6" variant="h6">
                             Location
                         </Typography>
                         <Typography component="p" variant="body2">
-                            Ashulia, Savar, Dhaka - 1344
+                            lusaka, zambia
                         </Typography>
                     </div>
                 </Paper>
