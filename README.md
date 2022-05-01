@@ -1,5 +1,5 @@
 # Material UI Portfolio
-### [Live Site](https://maruf43.netlify.app/) 
+### [Live Site](https://kennedyngosaportfolio.vercel.app/) 
 
 # Key Technology 
 - React 
