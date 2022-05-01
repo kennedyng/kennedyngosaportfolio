@@ -1,12 +1,11 @@
-# Material UI Portfolio
-### [Live Site](https://maruf43.netlify.app/) 
+# Kennedy Ngosa Portfolio
 
-# Key Technology 
-- React 
+# Key Technology
+
+- React
 - React Router
 - React Hooks
 - Material UI
-- React Animation 
+- React Animation
 - Email JS
-- Netlify Hosting 
-
+- vercel hosting

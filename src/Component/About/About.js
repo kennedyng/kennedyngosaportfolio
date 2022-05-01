@@ -73,7 +73,7 @@ function Copyright() {
         }),
     },
     menuButton: {
-        marginRight: 36,
+        marginRight: 30,
     },
     menuButtonHidden: {
         display: 'none',
@@ -212,8 +212,8 @@ export default function About() {
                     >
                     <MenuIcon className={classes.appIcon}/>
                     </IconButton>
-                    <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        Kennedy Ngosa
+                    <Typography component="h6" variant="h6" color="inherit" noWrap className={classes.title}>
+                       Kennedy Ngosa
                     </Typography>
                     <IconButton color="inherit">
                         <Link href="#" target="_blank">

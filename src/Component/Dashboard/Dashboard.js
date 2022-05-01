@@ -15,17 +15,11 @@ import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import FacebookIcon from '@material-ui/icons/Facebook';
-
-import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { secondaryListItems } from './ListItems';
-
 import Home from '../Home/Home';
 import { motion} from 'framer-motion/dist/framer-motion'
-
-
 import { RouterAnimation } from "../Animation/RouterAnimation";
 function Copyright() {
     return (
@@ -43,13 +37,7 @@ function Copyright() {
     const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        background: '#07172c',
-        
-        
-      
-    
-      
-       
+        background: '#07172c',       
     },
     toolbar: {
         paddingRight: 24, // keep right padding when drawer closed
@@ -68,6 +56,7 @@ function Copyright() {
         justifyContent: 'flex-end',
         padding: '0 8px',
         color: "white",
+        ...theme.mixins.toolbar,
       
         
        
@@ -79,7 +68,7 @@ function Copyright() {
         transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
-        boxShadow:0
+      
       
         }),
     },
@@ -97,7 +86,7 @@ function Copyright() {
     }, 
 
     menuButton: {
-        marginRight: 36,
+        marginRight: 30,
     },
     menuButtonHidden: {
         display: 'none',
@@ -134,10 +123,11 @@ function Copyright() {
     appBarSpacer: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
+       
       
     },
     container: {
-        paddingTop: theme.spacing(4),
+        paddingTop: theme.spacing(15),
         paddingBottom: theme.spacing(4),
     },
     paper: {
@@ -148,7 +138,6 @@ function Copyright() {
     },
     fixedHeight: {
         height: '100vh',
-        
         alignItems: 'center'
     },
     large: {
@@ -245,31 +234,25 @@ export default function Dashboard() {
                         <motion.div variants={mainTitleVariant} initial="hidden" animate="visible">Kennedy Ngosa</motion.div>  
                     </Typography>
 
-                    <motion.span variants={listVariant} initial="hidden" animate="visible">
                     
-                    <motion.span>
-                    <IconButton color="inherit">
-                        <Link href="#" target="_blank">
-                            <GitHubIcon className={classes.appIcon}/>
-                        </Link>
-                    </IconButton>
-                    </motion.span>
-                    <motion.span variants={itemVariant}>
+                   
+                
+                   
+                  
                     <IconButton color="inherit">
                         <Link href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_
                             profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact_info%3B62Vp%2FAXfQtycsJPsYnz6Ag%3D%3D" target="_blank">
                             <LinkedInIcon className={classes.appIcon} />
                         </Link>
                     </IconButton>
-                    </motion.span>
-                    <motion.span variants={itemVariant}>
+                  
+                    
                     <IconButton color="inherit">
                         <Link href="https://web.facebook.com/kennedy.ngosa.315/" target="_blank">
                             <FacebookIcon className={classes.appIcon}/>
                         </Link>
                     </IconButton>
-                    </motion.span>
-                    </motion.span>
+                    
                 </Toolbar>
             </AppBar>
           
@@ -300,24 +283,18 @@ export default function Dashboard() {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer}  />
                 <Container maxWidth="lg" className={classes.container}>
-                <Grid container spacing={3}>
-                    <Grid item xs={12} sm={12} md={12} lg={12}>
-                        <div className={fixedHeightPaper}>
-                            <Box
-                                display="flex"
-                                alignItems="center"
-                               
-                                css={{ height: '73vh' }}
-                            >
-                                <Box >
-                                    <Home />
-                                </Box>
-                            </Box>
+                    <Grid container 
+                    
+                        alignItems="center" 
+                        xs={12} sm={12} md={12} lg={12}
+                        justifyContent="center"
+                        direction="column"
+                        >
+                        <Grid item xs={12} sm={8} md={6} lg={6}>
+                            <Home />
 
-                                             
-                        </div>
+                        </Grid>
                     </Grid>
-                </Grid>
                 </Container>
             </main>
         </div>
