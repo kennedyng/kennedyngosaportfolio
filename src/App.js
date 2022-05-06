@@ -14,7 +14,6 @@ import Blog from './Component/Blog/Blog';
 import Contact from './Component/Contact/Contact';
 import { motion, AnimatePresence } from 'framer-motion/dist/framer-motion'
 
-
 import { useLocation } from "react-router-dom";
 
 const background = {
