@@ -30,7 +30,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 
-import learningMgt from '../../Image/learningMgt.png'
+import paidsolution from '../../Image/paidsolution.png'
 import { RouterAnimation } from "../Animation/RouterAnimation";
 
 function Copyright() {
@@ -270,7 +270,7 @@ export default function Portfolio() {
                         <Grid item xs={12} md={4} lg={4}>
                             <Card className={classes.cardShadow} style={styles.card}>
                                 <CardActionArea>
-                                    <CardMedia image={learningMgt} style={styles.media}/>
+                                    <CardMedia image={paidsolution} style={styles.media}/>
                                     <div style={styles.overlay}>
                                         <Typography component="h1" variant="h5">
                                             
@@ -278,15 +278,16 @@ export default function Portfolio() {
                                     </div>
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="h2">
-                                            Open Learning Management System
+                                            Paid Solution
                                         </Typography>
                                         <Divider />
                                         <Typography variant="body2" component="p">
-                                            <strong>Key Technology: </strong> React, React Router, React Bootstrap, SCSS,Django Rest FrameWork
+                                            <strong>Key Technology: </strong> React, React Router, Material UI, SCSS, Express, Redux, Stripe, Auth0,
                                         </Typography>
+                                        
                                     </CardContent>
                                     <CardActions>
-                                        <Link href="#" target="_blank" >
+                                        <Link href="https://paid-solution.vercel.app" target="_blank" >
                                             <VisibilityButton />
                                         </Link>
                                         <Link href="#" target="_blank">
