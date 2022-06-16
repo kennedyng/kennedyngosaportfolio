@@ -290,7 +290,7 @@ export default function Portfolio() {
                                         <Link href="https://paid-solution.vercel.app" target="_blank" >
                                             <VisibilityButton />
                                         </Link>
-                                        <Link href="#" target="_blank">
+                                        <Link href="https://github.com/kennedyng/PaidSolution.git" target="_blank">
                                             <GithubButton />
                                         </Link>
                                     </CardActions>  
