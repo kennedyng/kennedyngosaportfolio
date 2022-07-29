@@ -16,15 +16,7 @@ import { motion, AnimatePresence } from 'framer-motion/dist/framer-motion'
 
 import { useLocation } from "react-router-dom";
 
-const background = {
-  
-  background: 'rgba(255, 77, 74, 0.9)',
-  backdropFilter: 'blur(20px)'
-  
 
-
-
-}
 function App() {
 
  const location = useLocation();
@@ -34,7 +26,7 @@ function App() {
 
    
       
-      <div style={background}>
+      <>
         
         <AnimatePresence >
         <Switch location={location} key={location.key}>
@@ -61,9 +53,7 @@ function App() {
           </Route>
         </Switch>
         </AnimatePresence>
-      </div>
-      
-    
+      </>
   );
 }
 

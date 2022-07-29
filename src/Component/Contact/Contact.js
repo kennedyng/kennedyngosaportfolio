@@ -49,6 +49,7 @@ function Copyright() {
             'Oxygen', 'san-serif'
         ],
         color:"white",
+        
        
         
         
@@ -181,9 +182,9 @@ export default function Contact() {
     };
 
     return (
-       <motion.div variants={RouterVariant} initial="hidden" animate="visible" exit="exit">
+       <motion.div variants={RouterVariant} initial={false} animate={false} exit={false}>
         <div className={classes.root}>
-            <CssBaseline />
+            
             <AppBar position="absolute" elevation={0} className={clsx(classes.appBar, open && classes.appBarShift)}>
                 <Toolbar className={classes.toolbar}>
                     <IconButton

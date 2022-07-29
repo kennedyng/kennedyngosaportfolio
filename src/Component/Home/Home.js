@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: "bold",
         color: "white",
      
-        fontSize: 60,
+        fontSize: "-1rem",
         fontFamily: ['Oxygen', 'sans-serif']
     },
     subtitle : {
@@ -82,7 +82,7 @@ function Home() {
 
                    <Typist>
                         <Typography className={classes.subtitle}variant="subtitle"  gutterBottom>
-                            Am A Sofware Engineer  
+                            Am A Sofware Engineer | Full Stack Web Developer   
                         </Typography>
                         
                     </Typist>

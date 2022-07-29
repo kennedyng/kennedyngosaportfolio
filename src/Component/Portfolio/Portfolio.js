@@ -31,6 +31,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 
 import paidsolution from '../../Image/paidsolution.png'
+import myportfolio from '../../Image/myportfolio.png'
+import johnPortfolio from '../../Image/johnPortfolio.png'
+
 import { RouterAnimation } from "../Animation/RouterAnimation";
 
 function Copyright() {
@@ -262,8 +265,8 @@ export default function Portfolio() {
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     <Typography style={{textAlign: 'center'}} component="h2" variant="h3">
-                        <Box pb={5}>
-                            My Latest Project
+                        <Box pb={1}>
+                            My Projects
                         </Box>
                     </Typography>
                     <Grid container spacing={3}>
@@ -297,6 +300,70 @@ export default function Portfolio() {
                                 </CardActionArea>
                             </Card>
                         </Grid>
+
+                        <Grid item xs={12} md={4} lg={4}>
+                            <Card className={classes.cardShadow} style={styles.card}>
+                                <CardActionArea>
+                                    <CardMedia image={myportfolio} style={styles.media}/>
+                                    <div style={styles.overlay}>
+                                        <Typography component="h1" variant="h5">
+                                            
+                                        </Typography>
+                                    </div>
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            My Portfolio
+                                        </Typography>
+                                        <Divider />
+                                        <Typography variant="body2" component="p">
+                                            <strong>Key Technology: </strong> React, React Router, Material UI, Framer motion, Styled Components, Email Js
+                                        </Typography>
+                                        
+                                    </CardContent>
+                                    <CardActions>
+                                        <Link href="https://kennedyngosaportfolio.vercel.app" target="_blank" >
+                                            <VisibilityButton />
+                                        </Link>
+                                        <Link href="https://github.com/kennedyng/kennedyngosaportfolio.git" target="_blank">
+                                            <GithubButton />
+                                        </Link>
+                                    </CardActions>  
+                                </CardActionArea>
+                            </Card>
+                        </Grid>
+
+                        <Grid item xs={12} md={4} lg={4}>
+                            <Card className={classes.cardShadow} style={styles.card}>
+                                <CardActionArea>
+                                    <CardMedia image={johnPortfolio} style={styles.media}/>
+                                    <div style={styles.overlay}>
+                                        <Typography component="h1" variant="h5">
+                                            
+                                        </Typography>
+                                    </div>
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            Personal Portfolio
+                                        </Typography>
+                                        <Divider />
+                                        <Typography variant="body2" component="p">
+                                            <strong>Key Technology: </strong> React, React Router, <br /> Styled component
+                                        </Typography>
+                                        
+                                    </CardContent>
+                                    <CardActions>
+                                        <Link href="https://portfolio-react-yobah8.vercel.app/" target="_blank" >
+                                            <VisibilityButton />
+                                        </Link>
+                                        
+                                    </CardActions>  
+                                </CardActionArea>
+                            </Card>
+                        </Grid>
+
+            
+
+                        
                         
                         </Grid>
                      

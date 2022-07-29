@@ -4,11 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import emailjs from 'emailjs-com';
-import IconButton from '@material-ui/core/IconButton';
-import Collapse from '@material-ui/core/Collapse';
-import CloseIcon from '@material-ui/icons/Close';
-import { Alert } from '@material-ui/lab';
-import { Input } from '@material-ui/core';
+import { motion} from 'framer-motion/dist/framer-motion'
 
 import {Snackbar, MuiAlert } from "@material-ui/core"
 const useStyles = makeStyles((theme) => ({
@@ -74,6 +70,7 @@ export default function ContactInformation() {
           });
     }
     return (
+            <motion.div initial={false} animate={false} exit={false} >
             <div className={classes.paper}>
             <Typography variant="h4" component="h6" gutterBottom>
                 Get In Touch
@@ -158,7 +155,7 @@ export default function ContactInformation() {
 
           
         </div>
- 
+        </motion.div>
 
     );
 }
