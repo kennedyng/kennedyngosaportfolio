@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import emailjs from 'emailjs-com';
 import { motion} from 'framer-motion/dist/framer-motion'
 
-import {Snackbar, MuiAlert } from "@material-ui/core"
 const useStyles = makeStyles((theme) => ({
     paper: {
         marginTop: theme.spacing(4),

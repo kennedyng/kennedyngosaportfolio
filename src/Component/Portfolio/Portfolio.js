@@ -23,17 +23,14 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { secondaryListItems } from '../Dashboard/ListItems';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
-
 import VisibilityButton from './VisibilityButton';
 import GithubButton from './GithubButton'
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-
 import paidsolution from '../../Image/paidsolution.png'
 import myportfolio from '../../Image/myportfolio.png'
 import johnPortfolio from '../../Image/johnPortfolio.png'
-
 import { RouterAnimation } from "../Animation/RouterAnimation";
 
 function Copyright() {
@@ -317,8 +314,7 @@ export default function Portfolio() {
                                         <Divider />
                                         <Typography variant="body2" component="p">
                                             <strong>Key Technology: </strong> React, React Router, Material UI, Framer motion, Styled Components, Email Js
-                                        </Typography>
-                                        
+                                        </Typography>         
                                     </CardContent>
                                     <CardActions>
                                         <Link href="https://kennedyngosaportfolio.vercel.app" target="_blank" >
@@ -331,7 +327,6 @@ export default function Portfolio() {
                                 </CardActionArea>
                             </Card>
                         </Grid>
-
                         <Grid item xs={12} md={4} lg={4}>
                             <Card className={classes.cardShadow} style={styles.card}>
                                 <CardActionArea>
@@ -349,28 +344,16 @@ export default function Portfolio() {
                                         <Typography variant="body2" component="p">
                                             <strong>Key Technology: </strong> React, React Router, <br /> Styled component
                                         </Typography>
-                                        
                                     </CardContent>
                                     <CardActions>
                                         <Link href="https://portfolio-react-yobah8.vercel.app/" target="_blank" >
                                             <VisibilityButton />
-                                        </Link>
-                                        
+                                        </Link>         
                                     </CardActions>  
                                 </CardActionArea>
                             </Card>
                         </Grid>
-
-            
-
-                        
-                        
                         </Grid>
-                     
-                        
-        
-                   
-                   
                 </Container>
             </main>
         </div>

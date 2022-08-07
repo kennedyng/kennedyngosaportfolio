@@ -21,13 +21,10 @@ const routerVariant = {
           stiffness: 20,
           delay: 1
       }
-
     },
     exit :{
-       
-       
           x: 1500,
-        
+          opacity: 0,
         transition: {
           duration: 1,
           

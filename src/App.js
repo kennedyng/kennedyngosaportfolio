@@ -10,9 +10,8 @@ import Dashboard from './Component/Dashboard/Dashboard';
 import About from './Component/About/About';
 import Portfolio from './Component/Portfolio/Portfolio';
 import NotFound from './Component/NotFound.js/NotFound';
-import Blog from './Component/Blog/Blog';
 import Contact from './Component/Contact/Contact';
-import { motion, AnimatePresence } from 'framer-motion/dist/framer-motion'
+import {  AnimatePresence } from 'framer-motion/dist/framer-motion'
 
 import { useLocation } from "react-router-dom";
 
@@ -22,12 +21,7 @@ function App() {
  const location = useLocation();
 
   return (
-
-
-   
-      
       <>
-        
         <AnimatePresence >
         <Switch location={location} key={location.key}>
           <Route exact path="/">
@@ -42,9 +36,6 @@ function App() {
           <Route path="/portfolio">
             <Portfolio />
           </Route>
-          <Route path="/blog">
-            <Blog />
-          </Route>
           <Route path="/contact">
             <Contact />
           </Route>
@@ -56,5 +47,4 @@ function App() {
       </>
   );
 }
-
 export default App;

@@ -7,9 +7,6 @@ import { Link } from 'react-router-dom';
 import InfoIcon from '@material-ui/icons/Info';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 import GradeIcon from '@material-ui/icons/Grade';
-import CreateIcon from '@material-ui/icons/Create';
-
-import { makeStyles } from '@material-ui/core';
 import { motion} from 'framer-motion/dist/framer-motion'
 
 
