@@ -18,8 +18,6 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import { Avatar } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { secondaryListItems } from '../Dashboard/ListItems';
 import Content from './Content';
@@ -143,6 +141,7 @@ function Copyright() {
     },
     img: {
         height: "50%",
+        mixBlendMode: "luminosity",
        
         
     },
@@ -260,9 +259,7 @@ export default function About() {
                 <Container maxWidth="lg" className={classes.container}>
                 <Grid container spacing={4}>
                     <Grid item xs={12} sm={12} md={6} lg={6}>
-                        <motion.span variants={contentVariant} initial="hidden" animate="visible" exit="exit">
                         <img className={classes.img} src={unDrawFolderFiles} alt="myImage"/>
-                        </motion.span>
                     </Grid>
                     
                     <Grid item xs={12} sm={12} md={6} lg={6}>
