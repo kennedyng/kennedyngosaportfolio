@@ -74,7 +74,7 @@ const mainTitleVariants = {
      
       
       transition: {
-        ease: "easeInOut",
+       
         delay: 1,
         duration: 1.5
       },
