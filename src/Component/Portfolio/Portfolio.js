@@ -18,7 +18,6 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { secondaryListItems } from '../Dashboard/ListItems';
 import Card from '@material-ui/core/Card';
@@ -30,6 +29,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import paidsolution from '../../Image/paidsolution.png'
 import myportfolio from '../../Image/myportfolio.png'
+import Ebus from "../../Image/EBus.png"
+import onestone from "../../Image/onestone.png"
 import johnPortfolio from '../../Image/johnPortfolio.png'
 import { RouterAnimation } from "../Animation/RouterAnimation";
 
@@ -267,6 +268,71 @@ export default function Portfolio() {
                         </Box>
                     </Typography>
                     <Grid container spacing={3}>
+
+                    <Grid item xs={12} md={4} lg={4}>
+                            <Card className={classes.cardShadow} style={styles.card}>
+                                <CardActionArea>
+                                    <CardMedia image={Ebus} style={styles.media}/>
+                                    <div style={styles.overlay}>
+                                        <Typography component="h1" variant="h5">
+                                            
+                                        </Typography>
+                                    </div>
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            Modern E-Bus USSD REST API
+                                        </Typography>
+                                        <Divider />
+                                        <Typography variant="body2" component="p">
+                                            <strong>Key Technology: </strong> Express, Prisma ORM, MYSQ, JAVASCRIPT, 
+                                            SWAGGER UI 
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Link href="https://ebus-api.herokuapp.com/documentation/" target="_blank" >
+                                            <VisibilityButton />
+                                        </Link>  
+                                        <Link href="https://github.com/kennedyng/modern-bus-seat-booking-system.git" target="_blank">
+                                            <GithubButton />
+                                        </Link>       
+                                    </CardActions>  
+                                </CardActionArea>
+                            </Card>
+                        </Grid>
+
+
+
+                        <Grid item xs={12} md={4} lg={4}>
+                            <Card className={classes.cardShadow} style={styles.card}>
+                                <CardActionArea>
+                                    <CardMedia image={onestone} style={styles.media}/>
+                                    <div style={styles.overlay}>
+                                        <Typography component="h1" variant="h5">
+                                            
+                                        </Typography>
+                                    </div>
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            ONE STONE LIMITED WEB SITE
+                                        </Typography>
+                                        <Divider />
+                                        <Typography variant="body2" component="p">
+                                            <strong>Key Technology: </strong> Next js, Bootstrap, <br /> SASS,  
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Link href="https://one-stone-limited.vercel.app/" target="_blank" >
+                                            <VisibilityButton />
+                                        </Link>
+                                        <Link href="https://github.com/kennedyng/one-stone-limited.git" target="_blank">
+                                            <GithubButton />
+                                        </Link>      
+                                    </CardActions>  
+                                </CardActionArea>
+                            </Card>
+                        </Grid>
+
+
                         <Grid item xs={12} md={4} lg={4}>
                             <Card className={classes.cardShadow} style={styles.card}>
                                 <CardActionArea>
@@ -278,7 +344,7 @@ export default function Portfolio() {
                                     </div>
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="h2">
-                                            Paid Solution
+                                        PAID SOLUTION
                                         </Typography>
                                         <Divider />
                                         <Typography variant="body2" component="p">
@@ -327,6 +393,9 @@ export default function Portfolio() {
                                 </CardActionArea>
                             </Card>
                         </Grid>
+
+
+
                         <Grid item xs={12} md={4} lg={4}>
                             <Card className={classes.cardShadow} style={styles.card}>
                                 <CardActionArea>
@@ -353,6 +422,8 @@ export default function Portfolio() {
                                 </CardActionArea>
                             </Card>
                         </Grid>
+                        
+
                         </Grid>
                 </Container>
             </main>

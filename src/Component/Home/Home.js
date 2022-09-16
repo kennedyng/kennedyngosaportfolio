@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: "bold",
         color: "white",
      
-        fontSize: "-1rem",
+        fontSize: "-2rem",
         fontFamily: ['Oxygen', 'sans-serif']
     },
     subtitle : {
