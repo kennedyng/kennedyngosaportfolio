@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,6 +17,15 @@ import { useLocation } from "react-router-dom";
 
 
 function App() {
+
+  //redirect to new app
+  useEffect(
+    () => {
+      window.location.href="https://kennedy-amber.vercel.app/"
+
+    
+    }, []
+  )
 
  const location = useLocation();
 
