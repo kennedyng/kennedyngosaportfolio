@@ -31,7 +31,7 @@ function App() {
 
   return (
       <>
-        <AnimatePresence >
+        {/* <AnimatePresence >
         <Switch location={location} key={location.key}>
           <Route exact path="/">
             <Dashboard />
@@ -52,7 +52,7 @@ function App() {
               <NotFound />
           </Route>
         </Switch>
-        </AnimatePresence>
+        </AnimatePresence> */}
       </>
   );
 }
